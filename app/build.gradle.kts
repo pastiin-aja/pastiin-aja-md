@@ -48,6 +48,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.navigation:navigation-fragment:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

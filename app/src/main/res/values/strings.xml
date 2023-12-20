@@ -4,6 +4,8 @@
     <string name="hati_hati_dengan">Hati-hati dengan...</string>
     <string name="muat_ulang">Muat Ulang</string>
     <string name="waktu_habis">Waktu Habis</string>
+    <string name="beranda">Beranda</string>
+    <string name="profil">Profil</string>
 
     <string-array name="dummy_text">
         <item>Selamat Nomor XXX
@@ -99,5 +101,7 @@ Bisa di scrensot SMS ny kak</item>
         <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
         <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
