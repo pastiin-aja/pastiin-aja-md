@@ -106,5 +106,8 @@ Bisa di scrensot SMS ny kak</item>
     <string name="cek_teksmu">Cek teksmu</string>
     <string name="teks">Teks</string>
     <string name="gambar">Gambar</string>
+    <string name="kamera">Kamera</string>
+    <string name="galeri">Galeri</string>
+    <string name="cek_penipuan">Cek Penipuan</string>
 
 </resources>
