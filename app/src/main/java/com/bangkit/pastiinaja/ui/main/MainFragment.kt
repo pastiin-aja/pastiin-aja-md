@@ -1,5 +1,6 @@
 package com.bangkit.pastiinaja.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.data.remote.response.FraudItem
 import com.bangkit.pastiinaja.databinding.FragmentMainBinding
 import com.bangkit.pastiinaja.ui.ViewModelFactory
+import com.bangkit.pastiinaja.ui.add.AddActivity
 
 class MainFragment : Fragment() {
 
@@ -48,6 +50,10 @@ class MainFragment : Fragment() {
             setupData(fraudData)
         }
 
+        binding.fabAdd.setOnClickListener {
+            val intentToAdd = Intent(requireContext(), AddActivity::class.java)
+            startActivity(intentToAdd)
+        }
 
     }
 
