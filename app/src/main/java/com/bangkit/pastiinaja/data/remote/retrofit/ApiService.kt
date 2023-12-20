@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-    @GET("all-fraud")
+    @GET("all-shared-fraud")
     suspend fun getAllFraud(): FraudResponse
 
     @GET("fraud-by-user-id/{userId}")
