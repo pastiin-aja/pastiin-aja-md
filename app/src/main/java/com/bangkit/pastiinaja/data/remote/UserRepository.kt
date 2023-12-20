@@ -2,7 +2,7 @@ package com.bangkit.pastiinaja.data.remote
 
 import com.bangkit.pastiinaja.data.remote.retrofit.ApiService
 
-class UserRepository private constructor(
+class  UserRepository private constructor(
     private val apiService: ApiService
 ) {
     companion object {
