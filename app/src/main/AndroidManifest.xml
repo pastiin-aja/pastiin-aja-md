@@ -22,7 +22,7 @@
             android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".WellcomeActivity"
+            android:name=".wellcome.WellcomeActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

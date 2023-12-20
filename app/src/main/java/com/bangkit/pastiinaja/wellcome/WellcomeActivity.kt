@@ -1,7 +1,8 @@
-package com.bangkit.pastiinaja
+package com.bangkit.pastiinaja.wellcome
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bangkit.pastiinaja.R
 
 class WellcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
