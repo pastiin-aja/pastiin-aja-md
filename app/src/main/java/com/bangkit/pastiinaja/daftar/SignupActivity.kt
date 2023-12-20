@@ -11,9 +11,8 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
-import com.bangkit.pastiinaja.costumeview.LoginActivity
+import com.bangkit.pastiinaja.login.LoginActivity
 import com.bangkit.pastiinaja.databinding.ActivitySignupBinding
-import kotlinx.coroutines.NonCancellable.start
 
 
 class SignupActivity : AppCompatActivity() {
@@ -37,7 +36,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        }.start()
+
         val txtview1 = ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 1f).apply {
             duration = 200
             startDelay = 100
@@ -115,7 +114,7 @@ class SignupActivity : AppCompatActivity() {
                 val name = nameEditText.text.toString()
                 val email = emailEditTextSignup.text.toString()
                 val password = passwordEditTextSignup.text.toString()
-                viewModel.register(name, email, password).observe(this@Si) { result ->
+                viewModel.register(name, email, password).observe(this@SignupActivity) { result ->
                     when (result) {
                         is Result.Loading -> {
                             showLoading(true)

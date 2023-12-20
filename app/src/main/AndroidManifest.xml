@@ -19,7 +19,7 @@
             android:name=".costumeview.PasswordEdt"
             android:exported="false" />
         <activity
-            android:name=".costumeview.LoginActivity"
+            android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".WellcomeActivity"
