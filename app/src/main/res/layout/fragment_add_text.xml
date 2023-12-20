@@ -8,8 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.add.AddTextFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
+        android:id="@+id/input_text"
+        android:hint="Lorem ipsum"
+        android:gravity="top"
+        android:padding="20dp"
+        android:textSize="14sp"
         android:layout_width="match_parent"
+        android:textColor="@color/neutral_5"
         android:background="@drawable/rounded_card"
         android:backgroundTint="@color/neutral_1"
         android:layout_height="0dp"

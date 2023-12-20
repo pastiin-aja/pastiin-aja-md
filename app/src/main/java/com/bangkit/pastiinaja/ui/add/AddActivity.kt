@@ -8,7 +8,7 @@ import android.view.WindowManager
 import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.databinding.ActivityAddBinding
 
-class AddActivity : AppCompatActivity() {
+class AddActivity : AppCompatActivity(), AddMainFragment.OnButtonClickListener {
 
     private lateinit var binding: ActivityAddBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +21,20 @@ class AddActivity : AppCompatActivity() {
         val initialFragment = AddMainFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, initialFragment)
+            .commit()
+    }
+
+    override fun onInputTextButtonClick() {
+        val newTextFragment = AddTextFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, newTextFragment)
+            .commit()
+    }
+
+    override fun onInputImageButtonClick() {
+        val newImageFragment = AddImageFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, newImageFragment)
             .commit()
     }
 

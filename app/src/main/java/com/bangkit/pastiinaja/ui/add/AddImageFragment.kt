@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import com.bangkit.pastiinaja.R
 
 class AddImageFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
