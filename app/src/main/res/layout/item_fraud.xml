@@ -14,14 +14,13 @@
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
         android:maxLines="5"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@id/iv_fraud"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/iv_fraud"
-        android:layout_marginEnd="8dp"
-        android:textSize="14sp"
         tools:text="Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem lorem lorem lorem lorem lorem lroem lroem lorem lorem lorem lorem lorem lorem lorem lorem" />
 
     <ImageView
@@ -29,9 +28,12 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:contentDescription="Fraud Photo"
+        android:background="@drawable/rounded_image"
+        android:backgroundTint="@color/neutral_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_text"
         app:layout_constraintTop_toTopOf="@+id/tv_text"
+        app:layout_constraintBottom_toBottomOf="@id/tv_text"
         tools:src="@tools:sample/avatars" />
 
     <TextView

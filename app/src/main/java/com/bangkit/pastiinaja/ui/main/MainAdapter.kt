@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.pastiinaja.data.remote.response.ListFraudItem
+import com.bangkit.pastiinaja.data.remote.response.FraudItem
 import com.bangkit.pastiinaja.databinding.ItemFraudBinding
 import com.bumptech.glide.Glide
 
-class MainAdapter: PagingDataAdapter<ListFraudItem, MainAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class MainAdapter: PagingDataAdapter<FraudItem, MainAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -34,30 +34,30 @@ class MainAdapter: PagingDataAdapter<ListFraudItem, MainAdapter.MyViewHolder>(DI
     }
 
     class MyViewHolder(val binding: ItemFraudBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(fraud: ListFraudItem) {
-            binding.tvText.text = fraud.text
-            binding.tvDate.text = fraud.uploadedAt
-            if (fraud.photoUrl == null) {
+        fun bind(fraud: FraudItem) {
+            binding.tvText.text = fraud.textInput
+            binding.tvDate.text = fraud.createdAt
+            if (fraud.imageLink == null) {
                 binding.ivFraud.visibility = View.GONE
             } else {
                 Glide.with(itemView)
-                    .load(fraud.photoUrl)
+                    .load(fraud.imageLink)
                     .into(binding.ivFraud)
             }
         }
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: ListFraudItem)
+        fun onItemClicked(data: FraudItem)
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ListFraudItem>() {
-            override fun areContentsTheSame(oldItem: ListFraudItem, newItem: ListFraudItem): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<FraudItem>() {
+            override fun areContentsTheSame(oldItem: FraudItem, newItem: FraudItem): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areItemsTheSame(oldItem: ListFraudItem, newItem: ListFraudItem): Boolean {
+            override fun areItemsTheSame(oldItem: FraudItem, newItem: FraudItem): Boolean {
                 return oldItem == newItem
             }
         }
