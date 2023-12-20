@@ -1,3 +1,107 @@
 <resources>
     <string name="app_name">PastiinAja</string>
+    <string name="check_new_fraud">Check New Fraud</string>
+    <string name="hati_hati_dengan">Hati-hati dengan...</string>
+    <string name="muat_ulang">Muat Ulang</string>
+    <string name="waktu_habis">Waktu Habis</string>
+    <string name="beranda">Beranda</string>
+    <string name="profil">Profil</string>
+
+    <string-array name="dummy_text">
+        <item>Selamat Nomor XXX
+
++1000 C0IN PULSA
+Anda Baru Saja Masuk.
+
+SEGERA Ambil di *500*01# dan Tukar Jadi PULSA Sebelum Hangus!</item>
+        <item>maaf ganggu ya ka , aku mau nawarin kakak untuk main di web aku , soalnya trafik nya lagi bagus banget nih + nanti aku bantu juga ya buat bocoran dan lain"nya biar kakaknya bisa profit jugaa dan ga zonk aja ka , dan untuk member baru boleh nih daftar pakai link khusus VIP nya biar main bisa profit terus ni ka , dan untuk member baru juga ada bonus depositnya ya bisa di claim di live chat atau melalui aku ka
+https://bit.ly/LinkBellagio88VIP</item>
+        <item>Halo, Anda telah dipilih untuk pekerjaan paruh waktu/penuh waktu. Gaji harian: 800rb~15000rb, terima posisi ini+: https://wa.me/6282175086054
+Whatapp:+6282175086054
+
+(Catatan: Pelamar harus berusia minimal 22 tahun, siswa tidak dapat berpartisipasi)</item>
+        <item>Nomor XXX, Per Besok 18 Jul, +1000 COIN PULSA Anda akan Hangus!
+
+SEGERA Ambil di *500*70# dan Tukar Jadi PULSA Hari Ini!
+
+Hub *500*70# dan Pilih 1 YA!</item>
+        <item>Selamat Nomor XXX! +1000 COINPULSA Anda Baru Saja Masuk.
+
+SEGERA Ambil di *500*70#, Kumpul &amp; Tukar Jd PULSA Sblm Hangus!
+
+Hub *500*70# &amp; Pilih 1 YA!</item>
+        <item>
+
+Nomor
+Perihal
+Lampiran :-
+Kepada
+70121/BNI/VXII/2023
+Perubahan Tarif Transfer Bank Lain
+Yth. Bapak/Ibu
+Nasabah Bank BNI
+Sehubungan untuk meningkatkan kualitas dan keamanan nasabah bertransaksi, Mulai nanti malam saat pergantian tanggal, Pihak Bank BNI mengubah tarif lama transfer bank lain : Rp 6.500/Transaksi, Diubah Menjadi tarif baru : Rp 150.000/ Bulan (auto debit dari rekening tabungan) bebas transaksi.
+1. Apakah anda setuju dengan tarif baru Rp 150.000/Bulan, Bebas transaksi. 2. Tidak setuju dan ingin tetap di tarif lama Rp 6.500/Transaksi.
+Jika Bapak/Ibu tidak ada konfirmasi, Berarti dianggap setuju dengan tarif yang baru, Perubahan skema tarif dalam tahap percobaan untuk 6 bulan kedepan.
+Dengan ini di pertanyakan kepada Bapak/Ibu Nasabah Bank BNI, Jika tidak setuju dengan tarif yang baru silahkan mengisi formulir yang di kirim.
+Ketentuan :
+Jika Bapak/Ibu tidak mengonfirmasi maka dianggap SETUJU untuk penagihan setiap bulan Rp 150.000 dari rekening tabungan BNI nya, Baik ada transaksi atau tidak tetap akan di potong.</item>
+        <item>Maaf kami sdh menhubungi anda tapi tdk tersambung
+SIMCARD anda adalah pemenang ke-2 PESTA ISI ULANG PT.M- KIOS
+dg PIN:M23D187 U/info klik: www.pusatmkios.co.vu</item>
+        <item>Nasabah BRI Yth:
+Rek Anda M\'dptkan Hadiah Cek Tunai Rp.27jt
+Dari BANK BRI
+Code Triple Cek Anda (02599875) U/info Klik www.briuntungbeliungtahap4.blogspot.com</item>
+        <item>Selamat Anda M-dptkan Hadiah
+THR LAZADA 2019
+Rp,250.000.000
+No. pin. 25f4777 INFO Cek pin klik. www.Lazadajkt46.blogspot.com</item>
+        <item>Kejutan BRI BRItama !!!
+No. Rekening anda resmi dapat hadiah Rp.27 juta, Kode PIN Pemenang
+(02595225) Untuk Info klik www.untung-beliungbritama.tk
+Terima Kasih.</item>
+        <item>Shopee Slmt.
+No.Anda Resmi
+men-daptkan hadiah Ke-2 Cek Tunai Rp.175jt Kode ID
+Pemenang (AD25MD47)
+U/Info Hadiah
+Klik www.hadiahresmi-jkt57.com</item>
+        <item>Selamat sore kak, Maaf ganggu,kami dari kasir INDOMARET, minta tolong sebentar tadi ada pelanggan kami beli voucher game,kami salah input nomor ke input nomor kakak jadi sms nya terikirim ke nomor kakak
+Sms dari whatsapp yg ada tulisan thailand nya kak,karna ada kode 6 angka kak untuk kode voucher game fishinggo kk
+Bisa di scrensot SMS ny kak</item>
+    </string-array>
+
+    <string-array name="dummy_uploaded_at">
+        <item>29 Desember 2023</item>
+        <item>28 Desember 2023</item>
+        <item>28 Desember 2023</item>
+        <item>27 Desember 2023</item>
+        <item>26 Desember 2023</item>
+        <item>25 Desember 2023</item>
+        <item>25 Desember 2023</item>
+        <item>24 Desember 2023</item>
+        <item>23 Desember 2023</item>
+        <item>22 Desember 2023</item>
+        <item>21 Desember 2023</item>
+        <item>20 Desember 2023</item>
+    </string-array>
+
+    <string-array name="dummy_photo_url">
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+        <item>https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

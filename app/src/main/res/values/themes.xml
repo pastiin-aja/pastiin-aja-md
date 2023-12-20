@@ -3,6 +3,7 @@
     <style name="Base.Theme.PastiinAja" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="fontFamily">@font/plus_jakarta_sans</item>
     </style>
 
     <style name="Theme.PastiinAja" parent="Base.Theme.PastiinAja" />
