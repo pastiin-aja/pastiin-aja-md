@@ -107,7 +107,7 @@ Bisa di scrensot SMS ny kak</item>
     <string name="description">Selamat Nomor XXX\n\n+1000 C0IN PULSA\nAnda Baru Saja Masuk.\n\nSEGERA Ambil di *500*01# dan Tukar Jadi PULSA Sebelum Hangus!</string>
     <string name="date">29 Desember 2023</string>
     <string name="fraud_image">Fraud Image</string>
-  
+
     <string name="Profile">Profil</string>
     <string name="cek_teksmu">Cek teksmu</string>
     <string name="teks">Teks</string>
@@ -131,5 +131,9 @@ Bisa di scrensot SMS ny kak</item>
     <string name="enter_password">Masukan Password</string>
     <string name="name">Nama</string>
     <string name="enter_username">Masukan Nama</string>
+    <string name="hasil">Hasil</string>
+    <string name="kembali">Kembali</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="transkrip">Transkrip</string>
 
 </resources>

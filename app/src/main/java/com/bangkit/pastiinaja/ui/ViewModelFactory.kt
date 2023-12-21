@@ -11,6 +11,7 @@ import com.bangkit.pastiinaja.ui.login.LoginViewModel
 import com.bangkit.pastiinaja.ui.main.MainViewModel
 import com.bangkit.pastiinaja.ui.profile.ProfileViewModel
 import com.bangkit.pastiinaja.ui.register.RegisterViewModel
+import com.bangkit.pastiinaja.ui.result.ResultViewModel
 
 class ViewModelFactory(private val repository: UserRepository): ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
@@ -33,6 +34,9 @@ class ViewModelFactory(private val repository: UserRepository): ViewModelProvide
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ResultViewModel::class.java) -> {
+                ResultViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
