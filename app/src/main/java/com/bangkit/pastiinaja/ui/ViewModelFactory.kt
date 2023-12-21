@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import com.bangkit.pastiinaja.di.Injection
+import com.bangkit.pastiinaja.ui.add.AddViewModel
 import com.bangkit.pastiinaja.ui.login.LoginViewModel
 import com.bangkit.pastiinaja.ui.main.MainViewModel
 import com.bangkit.pastiinaja.ui.register.RegisterViewModel
@@ -15,6 +16,9 @@ class ViewModelFactory(private val repository: UserRepository): ViewModelProvide
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(AddViewModel::class.java) -> {
+                AddViewModel(repository) as T
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T

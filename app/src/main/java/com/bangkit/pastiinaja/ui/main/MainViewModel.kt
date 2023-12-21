@@ -35,7 +35,6 @@ class MainViewModel(private val repository: UserRepository): ViewModel() {
             repository.getAllFraud().let { response ->
                 if (!response.isError!!) {
                     _listFraud.value = response.data
-                    Log.d("MainViewModel", "getAllFraud: ${response.data}")
                 }
                 _isLoading.value = false
             }

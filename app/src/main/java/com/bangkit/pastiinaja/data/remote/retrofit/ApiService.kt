@@ -1,6 +1,10 @@
 package com.bangkit.pastiinaja.data.remote.retrofit
 
+import com.bangkit.pastiinaja.data.pref.FraudImageBody
+import com.bangkit.pastiinaja.data.pref.FraudTextBody
+import com.bangkit.pastiinaja.data.remote.response.FraudPostResponse
 import com.bangkit.pastiinaja.data.remote.response.FraudResponse
+import retrofit2.http.Body
 import com.bangkit.pastiinaja.data.remote.response.LoginResponse
 import com.bangkit.pastiinaja.data.remote.response.RegisterResponse
 import retrofit2.http.Field
@@ -33,5 +37,16 @@ interface ApiService {
     suspend fun getFraudByUserId(
         @Path("userId") userId: String
     ): FraudResponse
+
+
+    @POST("fraud-by-text")
+    suspend fun postFraudByText(
+        @Body body: FraudTextBody
+    ): FraudPostResponse
+
+    @POST("fraud-by-photo")
+    suspend fun postFraudByPhoto(
+        @Body body: FraudImageBody
+    ): FraudPostResponse
 
 }

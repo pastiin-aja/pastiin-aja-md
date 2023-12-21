@@ -103,6 +103,12 @@ Bisa di scrensot SMS ny kak</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cek_teksmu">Cek teksmu</string>
+    <string name="teks">Teks</string>
+    <string name="gambar">Gambar</string>
+    <string name="kamera">Kamera</string>
+    <string name="galeri">Galeri</string>
+    <string name="cek_penipuan">Cek Penipuan</string>
 
     <string name="gambar">gambar</string>
     <string name="title_login_page">Selamat Datang</string>
