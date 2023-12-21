@@ -21,6 +21,7 @@ class LoginViewModel(private val repository: UserRepository): ViewModel() {
             try {
                 repository.login(email, password).let { response ->
                     if (!response.isError!!) {
+                        repository.saveSession(response.data!!)
                         _isLoading.value = false
                         callback(true, "Login Berhasil")
                     } else {
