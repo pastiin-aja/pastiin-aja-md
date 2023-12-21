@@ -1,4 +1,4 @@
-package com.bangkit.pastiinaja.ui.main
+package com.bangkit.pastiinaja.ui.profile
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,33 +8,34 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import com.bangkit.pastiinaja.data.remote.response.FraudItem
-import com.bangkit.pastiinaja.data.remote.response.LoginData
-import com.bangkit.pastiinaja.data.remote.retrofit.ApiConfig
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val repository: UserRepository): ViewModel() {
+class ProfileViewModel (private val repository: UserRepository): ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    val userId: LiveData<String> = repository.getSession().asLiveData()
+
     private val _listFraud = MutableLiveData<List<FraudItem?>?>()
     val listFraud: LiveData<List<FraudItem?>?> = _listFraud
 
-    init {
-        getAllFraud()
+    fun logout() {
+        _isLoading.value = true
+        viewModelScope.launch {
+            repository.logout()
+            _isLoading.value = false
+        }
     }
 
-    fun getSession(): LiveData<String> {
-        return repository.getSession().asLiveData()
-    }
-
-    fun getAllFraud() {
+    fun getMyFraud(userId: String) {
         _isLoading.value = true
 
         viewModelScope.launch {
-            repository.getAllFraud().let { response ->
+            repository.getFraudByUserId(userId).let { response ->
                 if (!response.isError!!) {
                     _listFraud.value = response.data
+                    Log.d("ProfileViewModel", "getMyFraud: ${response.data}")
                 }
                 _isLoading.value = false
             }

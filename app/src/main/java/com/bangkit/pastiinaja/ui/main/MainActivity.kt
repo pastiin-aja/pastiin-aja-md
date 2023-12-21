@@ -1,5 +1,6 @@
 package com.bangkit.pastiinaja.ui.main
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,15 +11,28 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.databinding.ActivityMainBinding
+import com.bangkit.pastiinaja.ui.ViewModelFactory
+import com.bangkit.pastiinaja.ui.welcome.WelcomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel.getSession().observe(this) { token ->
+            if (token == "") {
+                startActivity(Intent(this, WelcomeActivity::class.java))
+                finish()
+            }
+        }
 
         val navView: BottomNavigationView = binding.navView
 
