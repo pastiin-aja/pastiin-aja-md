@@ -36,14 +36,16 @@ class AddTextFragment : Fragment() {
             showLoading(it)
         }
 
-        binding.buttonCheck.setOnClickListener {
-            val text = binding.inputText.text.toString()
-            viewModel.postFraudByText(dummyUserId, text) { isSuccess ->
-                if (isSuccess) {
-                    val intentToMain = Intent(requireContext(), MainActivity::class.java)
-                    startActivity(intentToMain)
-                } else {
-                    Log.e("AddTextFragment", "Failed to post fraud by text")
+        viewModel.getSession().observe(viewLifecycleOwner) { userId ->
+            binding.buttonCheck.setOnClickListener {
+                val text = binding.inputText.text.toString()
+                viewModel.postFraudByText(userId, text) { isSuccess ->
+                    if (isSuccess) {
+                        val intentToMain = Intent(requireContext(), MainActivity::class.java)
+                        startActivity(intentToMain)
+                    } else {
+                        Log.e("AddTextFragment", "Failed to post fraud by text")
+                    }
                 }
             }
         }
@@ -55,10 +57,6 @@ class AddTextFragment : Fragment() {
         } else {
             binding.progressBar.visibility = View.GONE
         }
-    }
-
-    companion object {
-        private const val dummyUserId = "8c668f417708091521fce0334f0a4b5c8b8bacaa6f4d21192b54fc4e21319d24"
     }
 
 }

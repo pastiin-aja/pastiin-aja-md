@@ -102,12 +102,14 @@ class AddImageFragment : Fragment() {
                 val imageBytes: ByteArray = byteArrayOutputStream.toByteArray()
                 val imageString: String = Base64.encodeToString(imageBytes, Base64.DEFAULT)
 
-                viewModel.postFraudByImage(dummyUserId, imageString) { isSuccess ->
-                    if (isSuccess) {
-                        val intentToMain = Intent(requireContext(), MainActivity::class.java)
-                        startActivity(intentToMain)
-                    } else {
-                        Log.e(TAG, "Failed to post fraud by image")
+                viewModel.getSession().observe(viewLifecycleOwner) { userId ->
+                    viewModel.postFraudByImage(userId, imageString) { isSuccess ->
+                        if (isSuccess) {
+                            val intentToMain = Intent(requireContext(), MainActivity::class.java)
+                            startActivity(intentToMain)
+                        } else {
+                            Log.e(TAG, "Failed to post fraud by image")
+                        }
                     }
                 }
 
@@ -143,7 +145,6 @@ class AddImageFragment : Fragment() {
     companion object {
         const val TAG = "AddImageFragment"
 
-        private const val dummyUserId = "8c668f417708091521fce0334f0a4b5c8b8bacaa6f4d21192b54fc4e21319d24"
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 

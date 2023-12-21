@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.data.remote.response.FraudItem
 import com.bangkit.pastiinaja.databinding.FragmentMainBinding
 import com.bangkit.pastiinaja.ui.ViewModelFactory
@@ -54,10 +53,10 @@ class MainFragment : Fragment() {
 
     private fun setupData(fraudData: List<FraudItem?>?) {
 
-        val fraudAdapter = MainDummyAdapter(fraudData)
+        val fraudAdapter = MainAdapter(fraudData)
         binding.rvFrauds.adapter = fraudAdapter
 
-        fraudAdapter.setOnItemClickCallback(object: MainDummyAdapter.OnItemClickCallback {
+        fraudAdapter.setOnItemClickCallback(object: MainAdapter.OnItemClickCallback {
             override fun onItemClicked(data: FraudItem) {
                 Log.d("MainActivity", "onClicked: ${data.fraudId}")
 //                val intentToDetail = Intent(this@MainActivity, DetailActivity::class.java)

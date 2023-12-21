@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.data.remote.response.FraudItem
-import com.bangkit.pastiinaja.databinding.FragmentMainBinding
 import com.bangkit.pastiinaja.databinding.FragmentProfileBinding
 import com.bangkit.pastiinaja.ui.ViewModelFactory
-import com.bangkit.pastiinaja.ui.main.MainDummyAdapter
-import com.bangkit.pastiinaja.ui.main.MainViewModel
+import com.bangkit.pastiinaja.ui.main.MainAdapter
 
 class ProfileFragment : Fragment() {
 
@@ -23,7 +20,6 @@ class ProfileFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentProfileBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,19 +39,25 @@ class ProfileFragment : Fragment() {
             showLoading(it)
         }
 
-        viewModel.listFraud.observe(viewLifecycleOwner) { fraudData ->
-            setupData(fraudData)
+        viewModel.userId.observe(viewLifecycleOwner) { userId ->
+            viewModel.getMyFraud(userId)
+            viewModel.listFraud.observe(viewLifecycleOwner) { fraudData ->
+                setupData(fraudData)
+            }
         }
 
+        binding.logoutButton.setOnClickListener {
+            viewModel.logout()
+        }
 
     }
 
     private fun setupData(fraudData: List<FraudItem?>?) {
 
-        val fraudAdapter = MainDummyAdapter(fraudData)
+        val fraudAdapter = MainAdapter(fraudData)
         binding.rvFrauds.adapter = fraudAdapter
 
-        fraudAdapter.setOnItemClickCallback(object: MainDummyAdapter.OnItemClickCallback {
+        fraudAdapter.setOnItemClickCallback(object: MainAdapter.OnItemClickCallback {
             override fun onItemClicked(data: FraudItem) {
                 Log.d("MainActivity", "onClicked: ${data.fraudId}")
 //                val intentToDetail = Intent(this@MainActivity, DetailActivity::class.java)

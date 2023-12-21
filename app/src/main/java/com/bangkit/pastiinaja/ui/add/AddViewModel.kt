@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import kotlinx.coroutines.launch
@@ -12,6 +13,10 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    fun getSession(): LiveData<String> {
+        return repository.getSession().asLiveData()
+    }
 
     fun postFraudByText(userId: String, text: String, callback: (Boolean) -> Unit) {
         _isLoading.value = true
