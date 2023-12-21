@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import com.bangkit.pastiinaja.di.Injection
 import com.bangkit.pastiinaja.ui.main.MainViewModel
+import com.bangkit.pastiinaja.ui.profile.ProfileViewModel
 
 class ViewModelFactory(private val repository: UserRepository): ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
@@ -13,6 +14,10 @@ class ViewModelFactory(private val repository: UserRepository): ViewModelProvide
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
