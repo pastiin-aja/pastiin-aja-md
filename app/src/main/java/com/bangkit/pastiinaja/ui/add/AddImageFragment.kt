@@ -21,7 +21,6 @@ import androidx.fragment.app.viewModels
 import com.bangkit.pastiinaja.databinding.FragmentAddImageBinding
 import com.bangkit.pastiinaja.getImageUri
 import com.bangkit.pastiinaja.ui.ViewModelFactory
-import com.bangkit.pastiinaja.ui.main.MainActivity
 import com.bangkit.pastiinaja.ui.result.ResultActivity
 import java.io.ByteArrayOutputStream
 
@@ -99,7 +98,7 @@ class AddImageFragment : Fragment() {
                 // convert image to base64 string
                 val byteArrayOutputStream = ByteArrayOutputStream()
                 val bitmap = (binding.ivPreview.drawable as BitmapDrawable).bitmap
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream)
                 val imageBytes: ByteArray = byteArrayOutputStream.toByteArray()
                 val imageString: String = Base64.encodeToString(imageBytes, Base64.DEFAULT)
 
