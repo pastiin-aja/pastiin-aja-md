@@ -2,6 +2,7 @@ package com.bangkit.pastiinaja.data.remote.retrofit
 
 import com.bangkit.pastiinaja.data.pref.FraudImageBody
 import com.bangkit.pastiinaja.data.pref.FraudTextBody
+import com.bangkit.pastiinaja.data.remote.response.FraudPostResponse
 import com.bangkit.pastiinaja.data.remote.response.FraudResponse
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -23,11 +24,11 @@ interface ApiService {
     @POST("fraud-by-text")
     suspend fun postFraudByText(
         @Body body: FraudTextBody
-    ): FraudResponse
+    ): FraudPostResponse
 
     @POST("fraud-by-photo")
     suspend fun postFraudByPhoto(
         @Body body: FraudImageBody
-    ): FraudResponse
+    ): FraudPostResponse
 
 }

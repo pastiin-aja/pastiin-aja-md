@@ -20,7 +20,6 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
             repository.postFraudByText(userId, text).let { response ->
                 if (!response.isError!!) {
                     callback(true)
-                    Log.d("AddViewModel", "postFraudByText result: ${response.data!![0]!!.result}")
                 } else {
                     callback(false)
                     Log.e("AddViewModel", "postFraudByText error: ${response.message}")
@@ -37,7 +36,6 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
             repository.postFraudByPhoto(userId, imageString).let { response ->
                 if (!response.isError!!) {
                     callback(true)
-                    Log.d("AddViewModel", "postFraudByPhoto result: ${response.data!![0]!!.result}")
                 } else {
                     callback(false)
                     Log.e("AddViewModel", "postFraudByPhoto error: ${response.message}")

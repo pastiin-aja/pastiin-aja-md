@@ -8,6 +8,6 @@ data class FraudTextBody(
 
 data class FraudImageBody(
     val user_id: String,
-    val image_link: String,
+    val image_base64: String,
     val is_shared: Boolean ?= false
 )
