@@ -22,6 +22,7 @@ import com.bangkit.pastiinaja.databinding.FragmentAddImageBinding
 import com.bangkit.pastiinaja.getImageUri
 import com.bangkit.pastiinaja.ui.ViewModelFactory
 import com.bangkit.pastiinaja.ui.main.MainActivity
+import com.bangkit.pastiinaja.ui.result.ResultActivity
 import java.io.ByteArrayOutputStream
 
 class AddImageFragment : Fragment() {
@@ -105,8 +106,10 @@ class AddImageFragment : Fragment() {
                 viewModel.getSession().observe(viewLifecycleOwner) { userId ->
                     viewModel.postFraudByImage(userId, imageString) { isSuccess ->
                         if (isSuccess) {
-                            val intentToMain = Intent(requireContext(), MainActivity::class.java)
-                            startActivity(intentToMain)
+                            val fraudId = viewModel.fraudId.value
+                            val intentToResult = Intent(requireContext(), ResultActivity::class.java)
+                            intentToResult.putExtra("DATA", fraudId)
+                            startActivity(intentToResult)
                         } else {
                             Log.e(TAG, "Failed to post fraud by image")
                         }

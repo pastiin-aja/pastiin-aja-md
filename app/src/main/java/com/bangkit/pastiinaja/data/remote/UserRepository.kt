@@ -1,6 +1,7 @@
 package com.bangkit.pastiinaja.data.remote
 
 import com.bangkit.pastiinaja.data.pref.FraudImageBody
+import com.bangkit.pastiinaja.data.pref.FraudShareBody
 import com.bangkit.pastiinaja.data.pref.FraudTextBody
 import com.bangkit.pastiinaja.data.pref.UserPreference
 import com.bangkit.pastiinaja.data.remote.response.LoginData
@@ -48,5 +49,9 @@ class UserRepository private constructor(
 
     suspend fun postFraudByPhoto(userId: String, imageString: String) = apiService.postFraudByPhoto(
         FraudImageBody(userId, imageString)
+    )
+
+    suspend fun updateIsShared(fraudId: String) = apiService.updateIsShared(
+        FraudShareBody(fraudId, true)
     )
 }

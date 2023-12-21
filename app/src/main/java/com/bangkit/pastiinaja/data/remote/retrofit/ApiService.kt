@@ -1,6 +1,7 @@
 package com.bangkit.pastiinaja.data.remote.retrofit
 
 import com.bangkit.pastiinaja.data.pref.FraudImageBody
+import com.bangkit.pastiinaja.data.pref.FraudShareBody
 import com.bangkit.pastiinaja.data.pref.FraudTextBody
 import com.bangkit.pastiinaja.data.remote.response.FraudPostResponse
 import com.bangkit.pastiinaja.data.remote.response.FraudResponse
@@ -11,6 +12,7 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {
@@ -53,4 +55,8 @@ interface ApiService {
         @Body body: FraudImageBody
     ): FraudPostResponse
 
+    @PUT("update-is-shared")
+    suspend fun updateIsShared(
+        @Body body: FraudShareBody
+    ): FraudPostResponse
 }

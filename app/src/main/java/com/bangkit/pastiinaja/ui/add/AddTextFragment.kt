@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import com.bangkit.pastiinaja.databinding.FragmentAddTextBinding
 import com.bangkit.pastiinaja.ui.ViewModelFactory
 import com.bangkit.pastiinaja.ui.main.MainActivity
+import com.bangkit.pastiinaja.ui.result.ResultActivity
+import com.bangkit.pastiinaja.ui.result.ResultTextActivity
 
 class AddTextFragment : Fragment() {
 
@@ -41,8 +43,10 @@ class AddTextFragment : Fragment() {
                 val text = binding.inputText.text.toString()
                 viewModel.postFraudByText(userId, text) { isSuccess ->
                     if (isSuccess) {
-                        val intentToMain = Intent(requireContext(), MainActivity::class.java)
-                        startActivity(intentToMain)
+                        val fraudId = viewModel.fraudId.value
+                        val intentToResult = Intent(requireContext(), ResultTextActivity::class.java)
+                        intentToResult.putExtra("DATA", fraudId)
+                        startActivity(intentToResult)
                     } else {
                         Log.e("AddTextFragment", "Failed to post fraud by text")
                     }

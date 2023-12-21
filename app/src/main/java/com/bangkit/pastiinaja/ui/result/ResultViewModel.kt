@@ -32,4 +32,19 @@ class ResultViewModel(private val repository: UserRepository): ViewModel() {
             }
         }
     }
+
+    fun shareFraud(id: String) {
+        _isLoading.value = true
+
+        viewModelScope.launch {
+            try {
+                repository.updateIsShared(id)
+                _isLoading.value = false
+            } catch (e: HttpException) {
+                Log.e("ResultViewModel", e.message())
+                _isLoading.value = false
+            }
+        }
+    }
+
 }

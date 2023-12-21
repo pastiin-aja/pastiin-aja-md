@@ -38,7 +38,7 @@ class DetailTextActivity : AppCompatActivity() {
 
         viewModel.getDetail(fraudId)
 
-        viewModel.detailStory.observe(this) { data ->
+        viewModel.detailFraud.observe(this) { data ->
             setDetail(data)
         }
     }

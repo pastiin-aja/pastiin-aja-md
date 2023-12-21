@@ -14,6 +14,9 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _fraudId = MutableLiveData<String>()
+    val fraudId: LiveData<String> = _fraudId
+
     fun getSession(): LiveData<String> {
         return repository.getSession().asLiveData()
     }
@@ -24,6 +27,7 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
         viewModelScope.launch {
             repository.postFraudByText(userId, text).let { response ->
                 if (!response.isError!!) {
+                    _fraudId.value = response.data?.fraudId!!
                     callback(true)
                 } else {
                     callback(false)
@@ -40,6 +44,7 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
         viewModelScope.launch {
             repository.postFraudByPhoto(userId, imageString).let { response ->
                 if (!response.isError!!) {
+                    _fraudId.value = response.data?.fraudId!!
                     callback(true)
                 } else {
                     callback(false)

@@ -11,3 +11,8 @@ data class FraudImageBody(
     val image_base64: String,
     val is_shared: Boolean ?= false
 )
+
+data class FraudShareBody(
+    val fraud_id: String,
+    val is_shared: Boolean ?= true
+)
