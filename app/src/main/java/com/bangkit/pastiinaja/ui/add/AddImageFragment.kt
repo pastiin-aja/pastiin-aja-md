@@ -3,8 +3,11 @@ package com.bangkit.pastiinaja.ui.add
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,8 +19,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.bangkit.pastiinaja.databinding.FragmentAddImageBinding
+import com.bangkit.pastiinaja.getImageUri
 import com.bangkit.pastiinaja.ui.ViewModelFactory
 import com.bangkit.pastiinaja.ui.main.MainActivity
+import java.io.ByteArrayOutputStream
 
 class AddImageFragment : Fragment() {
 
@@ -80,6 +85,35 @@ class AddImageFragment : Fragment() {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
+        binding.buttonInputCamera.setOnClickListener {
+            startCamera()
+        }
+
+        binding.buttonInputGallery.setOnClickListener {
+            startGallery()
+        }
+
+        binding.buttonCheck.setOnClickListener {
+            currentImageUri?.let {
+                // convert image to base64 string
+                val byteArrayOutputStream = ByteArrayOutputStream()
+                val bitmap = (binding.ivPreview.drawable as BitmapDrawable).bitmap
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
+                val imageBytes: ByteArray = byteArrayOutputStream.toByteArray()
+                val imageString: String = Base64.encodeToString(imageBytes, Base64.DEFAULT)
+
+                viewModel.postFraudByImage(dummyUserId, imageString) { isSuccess ->
+                    if (isSuccess) {
+                        val intentToMain = Intent(requireContext(), MainActivity::class.java)
+                        startActivity(intentToMain)
+                    } else {
+                        Log.e(TAG, "Failed to post fraud by image")
+                    }
+                }
+
+            } ?: Toast.makeText(requireContext(), "Gagal mengunggah", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     private fun startGallery() {
@@ -107,8 +141,9 @@ class AddImageFragment : Fragment() {
     }
 
     companion object {
-        const val TAG = "AddActivity"
+        const val TAG = "AddImageFragment"
 
+        private const val dummyUserId = "8c668f417708091521fce0334f0a4b5c8b8bacaa6f4d21192b54fc4e21319d24"
         private const val REQUIRED_PERMISSION = Manifest.permission.CAMERA
     }
 

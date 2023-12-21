@@ -25,7 +25,7 @@ class UserRepository private constructor(
         FraudTextBody(userId, text)
     )
 
-    suspend fun postFraudByPhoto(userId: String, imageLink: String) = apiService.postFraudByPhoto(
-        FraudImageBody(userId, imageLink)
+    suspend fun postFraudByPhoto(userId: String, imageString: String) = apiService.postFraudByPhoto(
+        FraudImageBody(userId, imageString)
     )
 }

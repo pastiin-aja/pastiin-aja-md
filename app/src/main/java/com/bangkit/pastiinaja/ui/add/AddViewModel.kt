@@ -29,4 +29,21 @@ class AddViewModel(private val repository: UserRepository): ViewModel() {
             }
         }
     }
+
+    fun postFraudByImage(userId: String, imageString: String, callback: (Boolean) -> Unit) {
+        _isLoading.value = true
+
+        viewModelScope.launch {
+            repository.postFraudByPhoto(userId, imageString).let { response ->
+                if (!response.isError!!) {
+                    callback(true)
+                    Log.d("AddViewModel", "postFraudByPhoto result: ${response.data!![0]!!.result}")
+                } else {
+                    callback(false)
+                    Log.e("AddViewModel", "postFraudByPhoto error: ${response.message}")
+                }
+                _isLoading.value = false
+            }
+        }
+    }
 }
