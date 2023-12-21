@@ -110,4 +110,21 @@ Bisa di scrensot SMS ny kak</item>
     <string name="galeri">Galeri</string>
     <string name="cek_penipuan">Cek Penipuan</string>
 
+    <string name="gambar">gambar</string>
+    <string name="title_login_page">Selamat Datang</string>
+    <string name="message_login_page">Keamanan adalah prioritas utama kami. Kami siap membantu Anda mengidentifikasi dan mencegah potensi kecurangan dengan PastiinAja!</string>
+    <string name="login">Masuk</string>
+    <string name="daftar">Daftar</string>
+    <string name="error_name">error name</string>
+    <string name="email">Email</string>
+    <string name="signup">Saya belum punya akun!</string>
+    <string name="masukan_email">Email</string>
+    <string name="password">Password</string>
+    <string name="masukan_sandi">********</string>
+    <string name="masuk">Masuk</string>
+    <string name="already_account_text">Saya sudah punya akun!</string>
+    <string name="enter_password">Masukan Password</string>
+    <string name="name">Nama</string>
+    <string name="enter_username">Masukan Nama</string>
+
 </resources>
