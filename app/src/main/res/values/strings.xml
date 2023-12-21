@@ -104,6 +104,7 @@ Bisa di scrensot SMS ny kak</item>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description">Selamat Nomor XXX\n\n+1000 C0IN PULSA\nAnda Baru Saja Masuk.\n\nSEGERA Ambil di *500*01# dan Tukar Jadi PULSA Sebelum Hangus!</string>
-    <string name="date">29 Desember 2023\n</string>
+    <string name="date">29 Desember 2023</string>
+    <string name="fraud_image">Fraud Image</string>
 
 </resources>

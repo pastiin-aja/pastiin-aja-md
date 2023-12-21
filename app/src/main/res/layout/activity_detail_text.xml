@@ -8,52 +8,31 @@
     android:background="@color/white"
     tools:context=".ui.detail.DetailActivity">
 
-    <ImageView
-        android:id="@+id/iv_fraud_image"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/neutral_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline_horizontal"
-        tools:src="@tools:sample/backgrounds/scenic"
-        android:contentDescription="@string/fraud_image" />
-
     <TextView
         android:id="@+id/tv_percentage_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="50%"
-        android:padding="12dp"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/neutral_2"
         android:background="@drawable/rounded_card"
+        android:backgroundTint="@color/neutral_2"
+        android:padding="12dp"
         android:textColor="@color/neutral_5"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_fraud_image"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_begin="366dp"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="50%" />
 
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="@string/description"
         android:padding="24dp"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_percentage_image"
+        tools:text="@string/description" />
 
     <TextView
         android:id="@+id/tv_created_date"
