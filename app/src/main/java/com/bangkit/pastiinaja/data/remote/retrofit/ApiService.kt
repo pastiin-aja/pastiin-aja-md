@@ -26,14 +26,12 @@ interface ApiService {
         @Field("password") password: String
     ): LoginResponse
 
-    @GET("all-fraud")
+    @GET("all-shared-fraud")
     suspend fun getAllFraud(): FraudResponse
 
     @GET("fraud-by-user-id/{userId}")
     suspend fun getFraudByUserId(
         @Path("userId") userId: String
     ): FraudResponse
-
-
 
 }
