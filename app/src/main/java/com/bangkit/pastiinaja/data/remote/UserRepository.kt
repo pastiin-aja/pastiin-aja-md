@@ -40,6 +40,8 @@ class UserRepository private constructor(
 
     suspend fun getFraudByUserId(userId: String) = apiService.getFraudByUserId(userId)
 
+    suspend fun getFraudByFraudId(fraudId: String) = apiService.getFraudByFraudId(fraudId)
+
     suspend fun postFraudByText(userId: String, text: String) = apiService.postFraudByText(
         FraudTextBody(userId, text)
     )

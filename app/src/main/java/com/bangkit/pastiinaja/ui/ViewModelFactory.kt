@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import com.bangkit.pastiinaja.di.Injection
 import com.bangkit.pastiinaja.ui.add.AddViewModel
+import com.bangkit.pastiinaja.ui.detail.DetailViewModel
 import com.bangkit.pastiinaja.ui.login.LoginViewModel
 import com.bangkit.pastiinaja.ui.main.MainViewModel
 import com.bangkit.pastiinaja.ui.profile.ProfileViewModel
@@ -29,6 +30,9 @@ class ViewModelFactory(private val repository: UserRepository): ViewModelProvide
             }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                DetailViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

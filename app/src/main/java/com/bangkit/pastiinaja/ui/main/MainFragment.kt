@@ -13,6 +13,8 @@ import com.bangkit.pastiinaja.data.remote.response.FraudItem
 import com.bangkit.pastiinaja.databinding.FragmentMainBinding
 import com.bangkit.pastiinaja.ui.ViewModelFactory
 import com.bangkit.pastiinaja.ui.add.AddActivity
+import com.bangkit.pastiinaja.ui.detail.DetailActivity
+import com.bangkit.pastiinaja.ui.detail.DetailTextActivity
 
 class MainFragment : Fragment() {
 
@@ -59,9 +61,15 @@ class MainFragment : Fragment() {
         fraudAdapter.setOnItemClickCallback(object: MainAdapter.OnItemClickCallback {
             override fun onItemClicked(data: FraudItem) {
                 Log.d("MainActivity", "onClicked: ${data.fraudId}")
-//                val intentToDetail = Intent(this@MainActivity, DetailActivity::class.java)
-//                intentToDetail.putExtra(DetailActivity.DATA, data)
-//                startActivity(intentToDetail)
+                if (data.imageLink == null) {
+                    val intentToDetail = Intent(requireContext(), DetailTextActivity::class.java)
+                    intentToDetail.putExtra("DATA", data.fraudId)
+                    startActivity(intentToDetail)
+                } else {
+                    val intentToDetail = Intent(requireContext(), DetailActivity::class.java)
+                    intentToDetail.putExtra("DATA", data.fraudId)
+                    startActivity(intentToDetail)
+                }
             }
         })
     }

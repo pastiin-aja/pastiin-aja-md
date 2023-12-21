@@ -38,6 +38,10 @@ interface ApiService {
         @Path("userId") userId: String
     ): FraudResponse
 
+    @GET("fraud-by-fraud-id/{userId}")
+    suspend fun getFraudByFraudId(
+        @Path("userId") userId: String
+    ): FraudPostResponse
 
     @POST("fraud-by-text")
     suspend fun postFraudByText(

@@ -36,6 +36,9 @@ class MainAdapter(private val listFraud: List<FraudItem?>?) : RecyclerView.Adapt
                 .load(fraud.imageLink)
                 .into(holder.binding.ivFraud)
         }
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(fraud!!)
+        }
     }
 
     override fun getItemCount(): Int = listFraud?.size ?: 0
