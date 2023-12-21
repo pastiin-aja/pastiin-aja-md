@@ -1,9 +1,14 @@
 package com.bangkit.pastiinaja.ui.register
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.databinding.ActivityRegisterBinding
@@ -34,10 +39,16 @@ class RegisterActivity : AppCompatActivity() {
             val name = binding.nameEditTextLogin.text ?: ""
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()) {
-                viewModel.register(name.toString(), email.toString(), password.toString()) { isSuccess ->
+                viewModel.register(name.toString(), email.toString(), password.toString()) { isSuccess, message ->
                     if (isSuccess) {
                         val intentToLogin = Intent(this, LoginActivity::class.java)
                         startActivity(intentToLogin)
+                    } else {
+                        binding.nameEditTextLogin.text?.clear()
+                        binding.emailEditTextLogin.text?.clear()
+                        binding.passwordEditTextLogin.text?.clear()
+                        Toast.makeText(this, "Register Gagal", Toast.LENGTH_SHORT).show()
+                        Log.e("Register", message)
                     }
                 }
             }
@@ -47,6 +58,8 @@ class RegisterActivity : AppCompatActivity() {
             val intentToLogin = Intent(this, LoginActivity::class.java)
             startActivity(intentToLogin)
         }
+
+        setupView()
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -55,5 +68,18 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             binding.progressBar.visibility = View.GONE
         }
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 }

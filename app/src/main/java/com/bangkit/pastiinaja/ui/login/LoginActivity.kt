@@ -1,9 +1,14 @@
 package com.bangkit.pastiinaja.ui.login
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.bangkit.pastiinaja.R
 import com.bangkit.pastiinaja.databinding.ActivityLoginBinding
@@ -38,14 +43,21 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passwordEditTextLogin.text ?: ""
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                viewModel.login(email.toString(), password.toString()) { isSuccess ->
+                viewModel.login(email.toString(), password.toString()) { isSuccess, message ->
                     if (isSuccess) {
                         val intentToMain = Intent(this, MainActivity::class.java)
                         startActivity(intentToMain)
+                    } else {
+                        Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
+                        binding.emailEditTextLogin.text?.clear()
+                        binding.passwordEditTextLogin.text?.clear()
+                        Log.e("Login", message)
                     }
                 }
             }
         }
+
+        setupView()
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -54,5 +66,18 @@ class LoginActivity : AppCompatActivity() {
         } else {
             binding.progressBar.visibility = View.GONE
         }
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 }

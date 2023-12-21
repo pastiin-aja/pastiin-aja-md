@@ -7,26 +7,30 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class RegisterViewModel(private val repository: UserRepository): ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun register(name: String, email: String, password: String, callback: (Boolean) -> Unit) {
+    fun register(name: String, email: String, password: String, callback: (Boolean, String) -> Unit) {
         _isLoading.value = true
 
         viewModelScope.launch {
-            repository.register(name, email, password).let { response ->
-                if (!response.isError!!) {
-                    _isLoading.value = false
-                    Toast.makeText(null, "Register Berhasil", Toast.LENGTH_SHORT).show()
-                    callback(true)
-                } else {
-                    _isLoading.value = false
-                    Toast.makeText(null, "Register Gagal", Toast.LENGTH_SHORT).show()
-                    callback(false)
+            try {
+                repository.register(name, email, password).let { response ->
+                    if (!response.isError!!) {
+                        _isLoading.value = false
+                        callback(true, "Register Berhasil")
+                    } else {
+                        _isLoading.value = false
+                        callback(false, response.message ?: "Register Gagal")
+                    }
                 }
+            } catch (e: HttpException) {
+                _isLoading.value = false
+                callback(false, "Register Gagal: ${e.message()}")
             }
         }
     }
