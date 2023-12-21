@@ -17,6 +17,7 @@
         android:backgroundTint="@color/neutral_2"
         android:orientation="vertical"
         android:padding="12dp"
+        android:gravity="center"
         android:textColor="@color/neutral_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,12 +25,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:text="@string/penipuan"
-            android:textSize="10sp" />
+            android:textSize="11sp" />
 
         <TextView
             android:id="@+id/tv_percentage_image"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="14sp"
