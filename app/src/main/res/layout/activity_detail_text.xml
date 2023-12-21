@@ -8,20 +8,36 @@
     android:background="@color/white"
     tools:context=".ui.detail.DetailActivity">
 
-    <TextView
-        android:id="@+id/tv_percentage_image"
+    <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/rounded_card"
         android:backgroundTint="@color/neutral_2"
+        android:orientation="vertical"
         android:padding="12dp"
         android:textColor="@color/neutral_5"
-        android:textSize="14sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="50%" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/penipuan"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_percentage_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="50%" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_description"
@@ -29,9 +45,10 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:textSize="14sp"
+        android:textColor="@color/neutral_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_percentage_image"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout"
         tools:text="@string/description" />
 
     <TextView
@@ -43,6 +60,7 @@
         android:paddingHorizontal="24dp"
         android:paddingVertical="8dp"
         android:textSize="12sp"
+        android:textColor="@color/neutral_5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_description" />
