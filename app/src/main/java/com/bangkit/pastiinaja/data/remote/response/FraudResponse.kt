@@ -14,6 +14,18 @@ data class FraudResponse(
 	val message: String? = null
 )
 
+data class FraudPostResponse(
+
+	@field:SerializedName("isError")
+	val isError: Boolean? = null,
+
+	@field:SerializedName("data")
+	val data: FraudItem? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null
+)
+
 data class FraudItem(
 
 	@field:SerializedName("result")

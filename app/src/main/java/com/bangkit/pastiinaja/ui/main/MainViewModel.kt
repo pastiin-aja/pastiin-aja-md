@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.pastiinaja.data.remote.UserRepository
 import com.bangkit.pastiinaja.data.remote.response.FraudItem
+import com.bangkit.pastiinaja.data.remote.response.LoginData
 import com.bangkit.pastiinaja.data.remote.retrofit.ApiConfig
 import kotlinx.coroutines.launch
 
@@ -22,6 +24,10 @@ class MainViewModel(private val repository: UserRepository): ViewModel() {
         getAllFraud()
     }
 
+    fun getSession(): LiveData<String> {
+        return repository.getSession().asLiveData()
+    }
+
     fun getAllFraud() {
         _isLoading.value = true
 
@@ -29,7 +35,6 @@ class MainViewModel(private val repository: UserRepository): ViewModel() {
             repository.getAllFraud().let { response ->
                 if (!response.isError!!) {
                     _listFraud.value = response.data
-                    Log.d("MainViewModel", "getAllFraud: ${response.data}")
                 }
                 _isLoading.value = false
             }
