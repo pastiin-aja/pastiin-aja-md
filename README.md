@@ -15,6 +15,18 @@ A mobile application to detect fraudulent messages.
 - **Real-Time Updates**: Stay informed with the latest alerts from other users, helping you avoid emerging threats.
 - **Build a Safer Community**: Your contributions help make the digital space safer for everyone in the PastiinAja community.
 
+## Tech Stack
+
+- **AndroidX Core and AppCompat**: Basic Android libraries for core functionality and backward-compatible design elements.
+- **Google Material Components**: Provides material design UI components.
+- **ConstraintLayout**: A flexible layout manager for complex Android UI designs.
+- **Retrofit and Gson Converter**: Used for making network requests and parsing JSON data.
+- **OkHttp Logging Interceptor**: Logs HTTP request and response data.
+- **Glide**: A powerful image loading and caching library.
+- **AndroidX Navigation**: Manages app navigation and UI flow.
+- **AndroidX DataStore**: A data storage solution for storing key-value pairs or typed objects.
+
+
 ## Screenshots
 
 **Main menu**
